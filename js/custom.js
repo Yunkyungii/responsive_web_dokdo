@@ -7,6 +7,19 @@ $(function () {
             : $('.header').removeClass('on')
     });
 
+    $(window).on('scroll', function () {
+        let sct = $(window).scrollTop();
+        $('._se_').each(function () {
+            if (sct + $(window).innerHeight() - 200 > $(this).offset().top) {
+                $(this).addClass('on')
+            }
+            else {
+                $(this).removeClass('on')
+            };
+
+        })
+    })
+
 
     const mainSlide = new Swiper('.main_slide', {
         loop: true,
@@ -27,6 +40,21 @@ $(function () {
         mainSlide.slideNext();
     });
 
+    const noticeSlide = new Swiper('.notice_slide', {
+        loop: true,
+        slidesPerView: 2,
+        spaceBetween: 30,
+        autoplay: {
+            delay: 1000,
+            disableOnInteraction: false,
+        },
+    })
 
+    $('.main_notice .arrows .left').on('click', function () {
+        noticeSlide.slidePrev();
+    });
+    $('.main_notice .arrows .right').on('click', function () {
+        noticeSlide.slideNext();
+    });
 
 })
