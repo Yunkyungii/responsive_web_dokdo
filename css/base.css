@@ -7,6 +7,14 @@
  */
 
 /* reset */
+
+
+input {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
+
 body,
 p,
 div,
